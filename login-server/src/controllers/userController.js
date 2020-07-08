@@ -1,15 +1,15 @@
-import * as userService from "../services/userService.js";
-import User from "../models/User.js";
+import * as userService from '../services/userService.js';
+import User from '../models/User.js';
 
 export const register = (req, res) => {
   userService
     .register(req.body)
-    .then(result => {
+    .then((result) => {
       res.status(200).json({
-        success: result
+        success: result,
       });
     })
-    .catch(result => {
+    .catch((result) => {
       res.json({ success: result });
     });
 };
@@ -17,18 +17,15 @@ export const register = (req, res) => {
 export const login = (req, res) => {
   userService
     .login(req.body)
-    .then(user => {
-      res
-        .cookie("x_auth", user.token)
-        .status(200)
-        .json({
-          loginSuccess: true,
-          userId: user._id
-        });
+    .then((user) => {
+      res.cookie('x_auth', user.token).status(200).json({
+        loginSuccess: true,
+        userId: user._id,
+      });
     })
-    .catch(message => {
+    .catch((message) => {
       res
-        .cookie("x_auth", null)
+        .cookie('x_auth', null)
         .status(400)
         .json({ loginSuccess: false, message });
     });
@@ -43,22 +40,23 @@ export const afterAuth = (req, res) => {
     name: req.user.name,
     lastname: req.user.lastname,
     role: req.user.role,
-    image: req.user.image
+    image: req.user.image,
   });
 };
 
 export const logout = (req, res) => {
   userService
     .logout(req.user)
-    .then(user => {
+    .then((user) => {
+      res.clearCookie('x_auth');
       res.status(200).json({
-        success: true
+        success: true,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       res.json({
         success: false,
-        err
+        err,
       });
     });
 };
