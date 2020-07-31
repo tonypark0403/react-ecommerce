@@ -1,23 +1,23 @@
 {
-  "name": "login-template",
+  "name": "react-ecommerce",
   "version": "1.0.0",
-  "description": "login template",
+  "description": "ecommerce",
   "main": "index.js",
   "scripts": {
-    "install": "yarn --cwd login-server && yarn --cwd client",
-    "start": "concurrently \"yarn --cwd login-server backend\" \"yarn --cwd client start\"",
+    "install": "yarn --cwd server && yarn --cwd client",
+    "start": "concurrently \"yarn --cwd server backend\" \"yarn --cwd client start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tonypark0403/login-template.git"
+    "url": "git+https://github.com/tonypark0403/react-ecommerce.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tonypark0403/login-template/issues"
+    "url": "https://github.com/tonypark0403/react-ecommerce/issues"
   },
-  "homepage": "https://github.com/tonypark0403/login-template#readme",
+  "homepage": "https://github.com/tonypark0403/react-ecommerce#readme",
   "dependencies": {
     "concurrently": "^5.2.0"
   }
